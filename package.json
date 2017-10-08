@@ -1,0 +1,23 @@
+{
+  "name": "flashcard-generator",
+  "version": "0.0.1",
+  "description": "A flashcard generator and study app",
+  "main": "generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelixSolon/Flashcard-Generator.git"
+  },
+  "keywords": [
+    "flashcard",
+    "study"
+  ],
+  "author": "Eric Stanulis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelixSolon/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/FelixSolon/Flashcard-Generator#readme"
+}
