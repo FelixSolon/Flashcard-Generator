@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/FelixSolon/Flashcard-Generator/issues"
   },
-  "homepage": "https://github.com/FelixSolon/Flashcard-Generator#readme"
+  "homepage": "https://github.com/FelixSolon/Flashcard-Generator#readme",
+  "dependencies": {
+    "express": "^4.16.1"
+  }
 }
