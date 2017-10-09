@@ -1,1 +1,1 @@
-[{"partial":"Please ... me","cloze":"kill","fullText":"Please kill me"},{"partial":"Hello ...","cloze":"World","fullText":"Hello World"}]
+[{"partial":"... was the first President of the United States","cloze":"George Washington","fullText":"George Washington was the first President of the United States"},{"partial":"The first rule of Fight Club is ...","cloze":"do not talk about fight club","fullText":"The first rule of Fight Club is do not talk about fight club"}]
