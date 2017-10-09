@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/FelixSolon/Flashcard-Generator#readme",
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "inquirer": "^3.3.0"
   }
 }

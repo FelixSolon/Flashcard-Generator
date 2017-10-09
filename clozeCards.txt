@@ -1,0 +1,1 @@
+[{"partial":"Please ... me","cloze":"kill","fullText":"Please kill me"},{"partial":"Hello ...","cloze":"World","fullText":"Hello World"}]
