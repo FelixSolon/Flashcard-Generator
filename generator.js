@@ -1,8 +1,15 @@
+//require the constructors
 var BasicCard = require('./BasicCard.js');
 var ClozeCard = require('./ClozeCard.js');
+
+//As far as I can tell, I don't need any of the rest of the code to meet requirements.
+//But.
+//I'm a little bored and this seems like something I could legitimately put on a resume if I do it well.
+//So I'm require a file system and inquirer
 var fs = require('fs');
 var inquirer = require('inquirer');
 
+//Ask the user what they're looking to do.
 inquirer.prompt([
     {
         name: 'choice',
@@ -13,6 +20,7 @@ inquirer.prompt([
 ]).then(function(answer){
     //Switch statements are Bae.
     switch (answer.choice){
+        //Ask the user what kind of flashcard they want to pull
         case 'Pull card':
         inquirer.prompt([
         {
@@ -24,11 +32,13 @@ inquirer.prompt([
         ]).then(function(answer){
             switch (answer.cardChoice){
                 case 'Basic Card':
+                //pull from the BasicCards.txt file
                 fs.readFile("BasicCards.txt", "utf8", function(error, data){
                     if (error){
                         console.log(error);
                     }
-                    basicCardArray = JSON.parse(data);
+                    //Ok, so 
+                    var basicCardArray = JSON.parse(data);
                     randomNumber = Math.floor(Math.random() * basicCardArray.length);
                     inquirer.prompt([
                     {
@@ -37,7 +47,7 @@ inquirer.prompt([
                         message: "Provide the answer: " + basicCardArray[randomNumber].front
                     }
                     ]).then(function(data){
-                        if (data.card.toLowerCase() == basicCardArray[randomNumber].back.toLowerCase()){
+                        if (data.card.toLowerCase().trim() == basicCardArray[randomNumber].back.toLowerCase().trim()){
                             console.log("Correct! The answer was " + basicCardArray[randomNumber].back);
                         } else {
                             console.log("I'm sorry. The correct answer was '" + basicCardArray[randomNumber].back + "'")
@@ -60,7 +70,7 @@ inquirer.prompt([
                         message: "Fill in the blank: " + clozeCardArray[randomNumber].partial
                     }
                     ]).then(function(data){
-                        if (data.card.toLowerCase() == clozeCardArray[randomNumber].cloze.toLowerCase()){
+                        if (data.card.toLowerCase().trim() == clozeCardArray[randomNumber].cloze.toLowerCase().trim()){
                             console.log("Correct! The answer was " + clozeCardArray[randomNumber].fullText);
                         } else {
                             console.log("I'm sorry. The correct answer was '" + clozeCardArray[randomNumber].fullText + "'")
@@ -82,7 +92,7 @@ inquirer.prompt([
             type: "input",
             message: "Great. And what would you like the cloze to be?"
         }]).then(function(answer){
-            var newCard = new ClozeCard(answer.text, answer.cloze);
+            var newCard = new ClozeCard(answer.text.trim(), answer.cloze.trim());
             var clozeCardArray = [];
             fs.readFile("ClozeCards.txt", "utf8", function(error, data){
                 if (error){
@@ -114,7 +124,7 @@ inquirer.prompt([
             type: "input",
             message: "Great. And what would you like the back of the card to be?"
         }]).then(function(answer){
-            var newCard = new BasicCard(answer.front, answer.back);
+            var newCard = new BasicCard(answer.front.trim(), answer.back.trim());
             var basicCardArray = [];
             fs.readFile("BasicCards.txt", "utf8", function(error, data){
                 if (error){
